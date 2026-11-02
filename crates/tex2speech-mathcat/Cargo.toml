@@ -25,14 +25,14 @@ strum = { version = "0.28", features = ["derive"] }
 anyhow = "1.0"
 regex = "1.12.3"
 bitflags = "2.11"
-phf = { version = "0.13", features = ["macros"] }
+phf = { version = "0.14", features = ["macros"] }
 roman-numerals-rs = "4.1.0"
 radix_fmt = "1.0"
 unicode-script = "0.5"
 log = "0.4"
 cfg-if = "1.0.1"
 fastrand = "2.3.0"
-html-escape = "0.2.13"
+html-escape = "0.3.0"
 elements_rs = { version = "0.2.8", default-features = false }
 # bzip2 stays on the pure-Rust libbz2-rs-sys: no C compiler is needed.
 zip = { version = "9.0", default-features = false, features = ["deflate", "bzip2"] }
