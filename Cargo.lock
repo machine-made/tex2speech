@@ -398,6 +398,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c9356095b4b41197bba32173600e1582792cda618f65d12f68e2e77d273413c5"
 
 [[package]]
+name = "html-escape"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "491194d601b4fa9fac3c9571e014070a0ad1bc3392d1bc10419695196a8b3cc3"
+
+[[package]]
 name = "indexmap"
 version = "2.14.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -556,7 +562,7 @@ dependencies = [
  "dirs",
  "env_logger",
  "fastrand",
- "html-escape",
+ "html-escape 0.2.15",
  "log",
  "phf 0.13.1",
  "radix_fmt",
@@ -655,6 +661,7 @@ checksum = "010378780309880b08997fae13be7834dba947d36393bd372f2b1556deb2a2f6"
 dependencies = [
  "phf_macros 0.14.0",
  "phf_shared 0.14.0",
+ "serde",
 ]
 
 [[package]]
@@ -1059,11 +1066,11 @@ dependencies = [
  "elements_rs",
  "env_logger",
  "fastrand",
- "html-escape",
+ "html-escape 0.3.0",
  "log",
  "math-core",
  "mathcat",
- "phf 0.13.1",
+ "phf 0.14.0",
  "radix_fmt",
  "regex",
  "roman-numerals-rs",
