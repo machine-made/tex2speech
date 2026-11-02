@@ -1,0 +1,17 @@
+Preface.
+A preface.
+
+Part 1: First part.
+
+Chapter 1: Intro.
+Chapter text.
+
+Part 2: Second part.
+
+Chapter 2: Body.
+
+Section 1: Details.
+Section text.
+
+Index of nothing.
+End.

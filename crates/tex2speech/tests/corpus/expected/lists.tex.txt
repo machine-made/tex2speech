@@ -1,0 +1,12 @@
+First bullet.
+Second bullet.
+Nested numbered.
+Another.
+Alpha: The first letter.
+Beta: The second letter.
+
+Text after the lists.
+
+Quote: A quotation.
+
+Centered text.

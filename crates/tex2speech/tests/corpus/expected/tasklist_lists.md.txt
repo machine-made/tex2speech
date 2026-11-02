@@ -1,0 +1,8 @@
+Done: Done item.
+To do: Open item.
+Plain item.
+First numbered.
+Second numbered.
+Nested bullet.
+Term.
+Definition of the term.

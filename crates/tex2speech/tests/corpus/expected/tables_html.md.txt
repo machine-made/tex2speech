@@ -1,0 +1,7 @@
+Before the table.
+
+Visible HTML text.
+
+Inline bold html and span text.
+
+After.

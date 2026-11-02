@@ -1,0 +1,29 @@
+\documentclass{amsart}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\title[Short]{An AMS article}
+\author{C. Mathematician}
+\address{HIDDENWORD University}
+\email{hidden@example.org}
+\subjclass{35Q30}
+\begin{document}
+\begin{abstract}
+We prove a result.
+\end{abstract}
+\maketitle
+\section{Results}
+\begin{theorem}[Main]\label{t:main}
+Every $x$ is finite.
+\end{theorem}
+\begin{lemma}
+It holds.
+\end{lemma}
+\begin{proof}
+By Theorem~\ref{t:main}. \qedhere
+\end{proof}
+\begin{definition}
+A thing.
+\end{definition}
+\end{document}

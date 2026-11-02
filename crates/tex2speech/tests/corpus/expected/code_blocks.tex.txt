@@ -1,0 +1,3 @@
+Before.
+Inline: x one equals two, y two, z three.
+After.

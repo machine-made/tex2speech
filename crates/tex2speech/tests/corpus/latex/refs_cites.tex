@@ -1,0 +1,13 @@
+\documentclass{article}
+\usepackage{cleveref,natbib}
+\begin{document}
+\section{Intro}\label{s:i}
+\begin{equation}\label{e:q} q = 1 \end{equation}
+\begin{figure}\caption{Fig.}\label{f:z}\end{figure}
+\cref{s:i}, \Cref{f:z}, \cref{e:q}, \cref{s:i,f:z}, \autoref{f:z}, \nameref{s:i}, \pageref{s:i}.
+Unknown: \ref{nowhere} and Figure~\ref{nowhere}.
+Cites: \cite{a}, \citep{a,b}, \citet{c}, \citep[see][p.~3]{d}, \citealp{a,e}.
+Numbers follow first use: \cite{e} and \cite{a}.
+\bibliographystyle{plain}
+\bibliography{refs}
+\end{document}

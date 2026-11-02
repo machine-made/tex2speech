@@ -1,0 +1,7 @@
+Note (first): Inside a note.
+
+Quote: Quoted by an environment.
+
+Hello world and you.
+Hello all and you. echo and echo. em.
+Say twice. yes. no. undefined.

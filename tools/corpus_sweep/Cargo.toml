@@ -1,0 +1,15 @@
+[package]
+name = "corpus_sweep"
+description = "Run the tex2speech engine on folders of documents and report crashes, leaks and warnings."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+publish = false
+
+[dependencies]
+tex2speech = { version = "0.0.1", path = "../../crates/tex2speech" }
+
+[lints]
+workspace = true

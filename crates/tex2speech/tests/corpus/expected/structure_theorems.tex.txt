@@ -1,0 +1,14 @@
+Theorem 1: Euler.
+e to the i pi equal to negative one.
+
+Corollary 2.
+It follows.
+
+Remark.
+Unnumbered remark.
+
+Proof of Theorem 1.
+Direct.
+
+Lemma 1.
+Default theorem names work without newtheorem.

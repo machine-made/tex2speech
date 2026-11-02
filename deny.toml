@@ -1,0 +1,41 @@
+[graph]
+all-features = true
+# Dev-dependencies are not shipped. The differential test pulls in upstream mathcat, which reads its rules
+# with yaml-rust and reaches an MPL-2.0 crate (option-ext) through dirs.
+exclude-dev = true
+
+[advisories]
+yanked = "deny"
+unmaintained = "all"
+
+# Permissive licences only. GPL, LGPL and AGPL are not listed, so cargo-deny
+# refuses them. This blocks voice libraries under those licences.
+[licenses]
+allow = [
+    "Apache-2.0",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "ISC",
+    "MIT",
+    "Unicode-3.0",
+    "Zlib",
+    "0BSD",          # roman-numerals-rs (0BSD OR CC0-1.0)
+    "bzip2-1.0.6",   # libbz2-rs-sys, the pure-Rust bzip2 that MathCAT's rule archive uses
+]
+confidence-threshold = 0.8
+
+[bans]
+multiple-versions = "warn"
+wildcards = "deny"
+# No C or C++ build step: these crates build or bind native code.
+deny = [
+    { crate = "cc" },
+    { crate = "cmake" },
+    { crate = "bindgen" },
+]
+
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]
+allow-git = []

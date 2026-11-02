@@ -1,0 +1,4 @@
+A sentence with a note.
+Footnote: The first note, with x squared.
+Another sentence.
+Footnote: The second note.

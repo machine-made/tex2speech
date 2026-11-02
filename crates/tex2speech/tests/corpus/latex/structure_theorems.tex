@@ -1,0 +1,22 @@
+\documentclass{article}
+\usepackage{amsthm}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem*{rem}{Remark}
+\begin{document}
+\begin{thm}[Euler]\label{t:e}
+$e^{i\pi} = -1$.
+\end{thm}
+\begin{cor}
+It follows.
+\end{cor}
+\begin{rem}
+Unnumbered remark.
+\end{rem}
+\begin{proof}[Proof of Theorem~\ref{t:e}]
+Direct.
+\end{proof}
+\begin{lemma}
+Default theorem names work without \verb|\newtheorem|.
+\end{lemma}
+\end{document}

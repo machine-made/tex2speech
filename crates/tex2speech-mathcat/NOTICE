@@ -1,0 +1,20 @@
+tex2speech-mathcat is a fork of MathCAT.
+
+Upstream:  https://github.com/NSoiffer/MathCAT
+Tag:       v0.7.7
+Commit:    764d24d1241b20c0973e9dbcee62d022c1f99a4a
+Copyright: Neil Soiffer and the MathCAT contributors, MIT licence (see LICENSE).
+
+The Rules folder and the source were fetched from the git tag, not from the crates.io
+package: the two differ (see README.md). Changes from upstream:
+
+- Trimmed to the English, French and Portuguese rules and the Nemeth braille rules
+  (MathCAT's build stops when no braille set is present). `Rules/Languages/zz`, a test language that the
+  build does not embed, stays for the preference tests.
+- The `mathml2text` and `package-rules` programs, the images, the other languages' tests, the `rule-coverage`,
+  `enable-logs` and `tts` features, and the `lang-*` and `braille-*` features are removed. The build embeds every
+  rule folder that is present.
+- Unsafe code is removed and `unsafe_code` is denied. The safe build of the sxd XML crates is always on.
+- The per-user preference file (`<config dir>/MathCAT/prefs.yaml`) is never read, so a file in a user's home
+  cannot change a reading. This removes the `dirs` crate and its MPL-2.0 dependency.
+- Rule edits for tex2speech, listed in RULE_EDITS.md, and upstream tests that follow them.

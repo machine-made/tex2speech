@@ -1,0 +1,201 @@
+---
+
+-
+  name: norm
+  tag: mrow
+  match: 
+    - "IsBracketed(., '∥', '∥')"
+  replace:
+  - intent:
+      name: "norm"
+      attrs: "data-intent-property='concat(data-intent-property, \":function:\")'"
+      children: [x: "*[2]"]
+
+
+-
+  name: norm
+  tag: msub
+  match: 
+    - "*[1][IsBracketed(., '∥', '∥')]"
+  replace:
+  - intent:
+      name: "subscripted-norm"
+      attrs: "data-intent-property='concat(data-intent-property, \":function:\")'"
+      children:
+      - x: "*[1]/*[2]"   # grab the contents of the bracketed expr
+      - x: "*[2]"
+
+-
+  # TeX4ht commonly attaches the norm's subscript to the closing bar only:
+  # <mrow><mo>∥</mo>...<msub><mo>∥</mo><mi>p</mi></msub></mrow>.
+  name: norm-with-subscripted-closing-bar
+  tag: mrow
+  match:
+    - "count(*) >= 3 and *[1][.='∥'] and *[last()][self::m:msub and *[1][.='∥']]"
+  replace:
+  - intent:
+      name: "subscripted-norm"
+      attrs: "data-intent-property='concat(data-intent-property, \":function:\")'"
+      children:
+      - x: "*[position() > 1 and position() < last()]"
+      - x: "*[last()]/*[2]"
+
+-
+  # The same TeX4ht shape can use two ordinary vertical bars for each double bar.
+  name: norm-with-doubled-bars-and-subscripted-closing-bar
+  tag: mrow
+  match:
+    - "count(*) >= 5 and *[1][.='|'] and *[2][.='|'] and *[last()-1][.='|'] and *[last()][self::m:msub and *[1][.='|']]"
+  replace:
+  - intent:
+      name: "subscripted-norm"
+      attrs: "data-intent-property='concat(data-intent-property, \":function:\")'"
+      children:
+      - x: "*[position() > 2 and position() < last()-1]"
+      - x: "*[last()]/*[2]"
+
+-
+  # Canonicalization groups ||x||_p as an indexed row containing a nested |x|.
+  name: norm-with-canonicalized-doubled-bars
+  tag: msub
+  match:
+    - "*[1][self::m:mrow and count(*)=3 and *[1][.='|'] and *[2][self::m:mrow and IsBracketed(., '|', '|')] and *[3][.='|']]"
+  replace:
+  - intent:
+      name: "subscripted-norm"
+      attrs: "data-intent-property='concat(data-intent-property, \":function:\")'"
+      children:
+      - x: "*[1]/*[2]/*[2]"
+      - x: "*[2]"
+
+-
+  name: vector-magnitude
+  tag: mrow
+  match: "IsBracketed(., '‖', '‖')"
+  replace:
+  - intent:
+      name: "magnitude"
+      attrs: "data-intent-property='concat(data-intent-property, \":function:\")'"
+      children: [x: "*[2]"]
+
+-
+  name: transpose
+  tag: msup
+  match: 
+    - "*[2][.='T' or .='⊤' or .='⊺' or .='\U0001D5B3' or .='\U0001D413' or .='\U0001D5E7']"
+  replace:
+  - intent:
+      name: "transpose"
+      attrs: "data-intent-property='concat(data-intent-property, \":postfix:\")'"
+      children: [x: "*[1]"]
+
+-
+  name: transpose-with-subscript
+  tag: msubsup
+  match:
+    - "*[3][.='T' or .='⊤' or .='⊺' or .='\U0001D5B3' or .='\U0001D413' or .='\U0001D5E7']"
+  replace:
+  - intent:
+      name: "transpose"
+      attrs: "data-intent-property='concat(data-intent-property, \":postfix:\")'"
+      children:
+      - intent:
+          name: "indexed-by"
+          attrs: "data-intent-property='concat(data-intent-property, \":infix:\")', id='concat(@id, \"-indexed-by\")'"
+          children:
+          - x: "*[1]"
+          - x: "*[2]"
+
+-
+  name: trace
+  tag: mrow
+  match: 
+    - "count(*)=3 and (*[1][.='tr' or .='Tr']) and *[2][.='\u2061']"
+  replace:
+  - intent:
+      name: "trace"
+      attrs: "data-intent-property='concat(data-intent-property, \":function:\")'"
+      children: [x: "*[3]"]
+
+-
+  name: dimension
+  tag: mrow
+  match: 
+    - "count(*)=3 and (*[1][.='dim' or .='Dim']) and *[2][.='\u2061']"
+  replace:
+  - intent:
+      name: "dimension"
+      attrs: "data-intent-property='concat(data-intent-property, \":function:\")'"
+      children: [x: "*[3]"]
+
+-
+  name: homomorphism
+  tag: mrow
+  match: 
+    - "count(*)=3 and (*[1][.='hom' or .='Hom']) and *[2][.='\u2061']"
+  replace:
+  - intent:
+      name: "homomorphism"
+      attrs: "data-intent-property='concat(data-intent-property, \":function:\")'"
+      children: [x: "*[3]"]
+
+-
+  name: determinant-function
+  tag: mrow
+  match: 
+    - "count(*)=3 and (*[1][.='det' or .='Det']) and *[2][.='\u2061']"
+  replace:
+  - intent:
+      name: "determinant-function"
+      attrs: "data-intent-property='concat(data-intent-property, \":function:\")'"
+      children: [x: "*[3]"]
+
+-
+  name: kernel
+  tag: mrow
+  match: 
+    - "count(*)=3 and (*[1][.='ker' or .='Ker']) and *[2][.='\u2061']"
+  replace:
+  - intent:
+      name: "kernel"
+      attrs: "data-intent-property='concat(data-intent-property, \":function:\")'"
+      children: [x: "*[3]"]
+
+-
+  name: dot-product
+  tag: mo
+  # mathvariant='bold' is canonicalized to the math alphanumeric equivalent
+  # I tried using the range '𝐀'<=. and .<='𝐳', but that doesn't work (Rust's xpath has bugs with 32 bit Unicode chars)
+  # ∇ can also signal a vector operation
+  match: 
+    - "(.='⋅' or .='·') and
+       preceding-sibling::*[1][ self::m:mover[*[2][.='→' or .='⇀' or .='^']] or
+                                BaseNode(.)[.='∇' or .='𝛁'] or
+                                descendant-or-self::*[string-length(.)=1 and
+                                                      translate(., '∇𝛁𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳','')=''] ] and
+       following-sibling::*[1][ self::m:mover[*[2][.='→' or .='⇀' or .='^']] or
+                                descendant-or-self::*[string-length(.)=1 and
+                                                      translate(., '∇𝛁𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳','')=''] ]"
+  replace:
+  - intent:
+      name: "dot-product"
+      attrs: "id='@id'"
+      children: []
+
+-
+  name: cross-product
+  tag: mo
+  match: 
+    - ".='×' and
+       preceding-sibling::*[1][ self::m:mover[*[2]='→' or *[2]='⇀' or *[2]='^'] or
+                                BaseNode(.)[.='∇' or .='𝛁'] or
+                                descendant-or-self::*[string-length(.)=1 and
+                                                      translate(., '∇𝛁𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳','')=''] ] and
+       following-sibling::*[1][ self::m:mover[*[2]='→' or *[2]='⇀' or *[2]='^'] or
+                                descendant-or-self::*[string-length(.)=1 and
+                                                      translate(., '∇𝛁𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳','')=''] ]"
+  replace:
+  - intent:
+      name: "cross-product"
+      attrs: "id='@id'"
+      children: []

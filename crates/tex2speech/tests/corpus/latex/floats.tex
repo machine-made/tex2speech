@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage{subcaption,longtable}
+\begin{document}
+\begin{figure}
+\centering
+\begin{subfigure}{0.4\textwidth}
+\includegraphics{a}
+\caption{Left panel.}\label{sf:a}
+\end{subfigure}
+\begin{subfigure}{0.4\textwidth}
+\includegraphics{b}
+\caption{Right panel.}
+\end{subfigure}
+\caption{Both panels.}\label{f:both}
+\end{figure}
+\begin{table}
+\caption{Results table.}\label{t:r}
+\begin{tabular}{ll}
+HIDDENWORD & 1 \\
+\end{tabular}
+\end{table}
+\begin{longtable}{cc}
+\caption{A long table.}\\
+HIDDENWORD & 2 \\
+\end{longtable}
+\begin{figure}
+\subfloat[First old style]{\includegraphics{c}}
+\subfloat[Second old style]{\includegraphics{d}}
+\caption*{Unnumbered caption.}
+\end{figure}
+See Figure~\ref{f:both}, Figure~\ref{sf:a} and Table~\ref{t:r}.
+\captionof{figure}{Outside a float.}
+\end{document}

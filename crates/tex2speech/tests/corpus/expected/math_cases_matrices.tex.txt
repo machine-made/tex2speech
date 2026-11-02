@@ -1,0 +1,7 @@
+f of x, equal to, zero if x less than zero, one if x greater than or equal to zero.
+Matrices: the two by two matrix with rows one, zero, and zero, one, and the two by two determinant with rows a, b, and c, d, and one, two.
+Operators: trace of capital A, rank of capital B, sine x, the limit as n approaches infinity, of a n.
+Text in maths: x greater than zero for all x.
+Fractions and roots: one half, cube root of x, n choose k.
+Accents: vector v, x bar, y tilde, z dot, z double dot.
+Sets: capital A union capital B, capital A intersection capital B, x in the real numbers, for all x there exists y.

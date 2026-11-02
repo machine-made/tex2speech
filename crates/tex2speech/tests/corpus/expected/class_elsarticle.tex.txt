@@ -1,0 +1,10 @@
+Elsevier style.
+By E. Author.
+
+Abstract.
+An abstract here.
+
+Keywords: Alpha, beta.
+
+Section 1: Intro.
+Body.

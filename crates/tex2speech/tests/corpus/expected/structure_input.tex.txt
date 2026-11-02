@@ -1,0 +1,9 @@
+Part 1: Top.
+Before the include.
+
+Section 1: Included one.
+Text from the first included file.
+a equal to one.
+
+Subsection 1: Nested include.
+Nested text, then a cycle: After the includes.

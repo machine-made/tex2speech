@@ -1,0 +1,4 @@
+# Tests compare text byte for byte: keep LF in the working tree on every platform, whatever core.autocrlf says.
+* text=auto eol=lf
+# The MathCAT fork keeps the files exactly as committed (upstream rule files use CRLF).
+crates/tex2speech-mathcat/** -text

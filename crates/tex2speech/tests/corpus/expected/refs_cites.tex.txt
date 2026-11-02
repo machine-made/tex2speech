@@ -1,0 +1,8 @@
+Section 1: Intro.
+q equal to one.
+equation 1.
+Figure 1: Figure.
+Section 1, Figure 1, equation 1, section 1 and figure 1, Figure 1, Intro.
+Unknown: a reference and Figure.
+Cites: reference 1, references 1 and 2, reference 3, reference 4, references 1 and 5.
+Numbers follow first use: reference 5 and reference 1.

@@ -1,0 +1,12 @@
+Chapter 1: Introduction.
+
+Section 1.1: Background.
+Text.
+
+Section 1.2: Aims.
+
+Subsection 1: Finer point.
+
+Chapter 2.
+
+Section 2.1: Detail.

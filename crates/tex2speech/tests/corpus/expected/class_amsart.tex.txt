@@ -1,0 +1,18 @@
+An AMS article.
+By C. Mathematician.
+
+Abstract.
+We prove a result.
+
+Section 1: Results.
+Theorem 1.1: Main.
+Every x is finite.
+
+Lemma 1.2.
+It holds.
+
+Proof.
+By Theorem 1.1.
+
+Definition 1.
+A thing.

@@ -1,0 +1,19 @@
+\documentclass{article}
+\usepackage{listings,minted}
+\begin{document}
+Before.
+\begin{verbatim}
+HIDDENWORD in verbatim
+\end{verbatim}
+\begin{lstlisting}[language=C]
+int HIDDENWORD = 1;
+\end{lstlisting}
+\begin{minted}{python}
+HIDDENWORD = 2
+\end{minted}
+Inline: \verb|x_1 = 2|, \lstinline{y_2}, \texttt{z\_3}.
+\begin{comment}
+HIDDENWORD in comment
+\end{comment}
+After.
+\end{document}

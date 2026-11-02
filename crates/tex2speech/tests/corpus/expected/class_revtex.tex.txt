@@ -1,0 +1,11 @@
+A physics paper.
+By D. Physicist.
+
+Abstract.
+We measure a quantity.
+
+Section 1: Introduction.
+The signal is five volts at three kelvins.
+
+Acknowledgements.
+We thank the lab.

@@ -1,0 +1,10 @@
+Figure 1a: Left panel.
+Figure 1b: Right panel.
+Figure 1: Both panels.
+Table 1: Results table.
+Table 2: A long table.
+Figure a: First old style.
+Figure b: Second old style.
+Figure: Unnumbered caption.
+See Figure 1, Figure 1a and Table 1.
+Figure 2: Outside a float.

@@ -1,0 +1,8 @@
+x, equal to, max of a, b if a, greater than, zero,
+y equal to two,
+equation 5.1,
+a equal to b,
+equation 1,
+c equal to d.
+Inline with punctuation e equal to m c squared, and display
+z equal to three.

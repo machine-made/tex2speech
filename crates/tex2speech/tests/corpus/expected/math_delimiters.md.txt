@@ -1,0 +1,5 @@
+Dollar math a plus b, paren math c plus d, and display:
+e equal to m c squared.
+f of x, equal to, integral from zero to one of g of t d t.
+
+Escaped five is money, and code with underscores stays words.

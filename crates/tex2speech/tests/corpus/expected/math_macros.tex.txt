@@ -1,0 +1,5 @@
+u in R three, norm of capital A, d x, grad of f, arg min x of g, x over two, phi.
+Partial u, partial t, and partial squared u over partial x squared.
+Capital E equal to m over two, v squared.
+equation 1.
+Used before definition: defined later.

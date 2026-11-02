@@ -1,0 +1,17 @@
+[package]
+name = "tex2speech"
+description = "Turn LaTeX and Markdown documents into text a speech model can read aloud."
+readme = "../../README.md"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+math-core = { version = "0.9", default-features = false }
+pulldown-cmark = { version = "0.13", default-features = false }
+tex2speech-mathcat = { version = "0.0.1", path = "../tex2speech-mathcat" }

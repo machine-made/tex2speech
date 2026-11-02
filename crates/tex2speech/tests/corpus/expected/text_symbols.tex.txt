@@ -1,0 +1,12 @@
+Accents: Café, naïve, ça va, škoda, Müller, østergaard, straße.
+Dashes: pages ten to twelve, Navier-Stokes, a break, here.
+Quotes: double and single'.
+Symbols: fifty percent, number one, R and D, five m, bold emph italic.
+Abbreviations: Smith and others showed (for example here, that is there) in Figure three et cetera.
+Numbers: one thousand two hundred items, three point one four, one million, the third, in nineteen ninety-six, zero zero seven.
+Sentence one.
+Sentence two?
+Sentence three!
+Doctor Who arrived.
+Unknown: kept text and.
+Line with a trailing comment continues here.

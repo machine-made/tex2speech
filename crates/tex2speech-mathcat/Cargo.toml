@@ -1,0 +1,59 @@
+[package]
+name = "tex2speech-mathcat"
+description = "MathCAT (MathML to speech) with English rules edited for tex2speech."
+readme = "README.md"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license = "MIT"
+repository.workspace = true
+authors = ["Neil Soiffer <soiffer@alum.mit.edu>", "machine-made"]
+build = "build.rs"
+
+[features]
+default = ["include-zip"]
+# Embeds the Rules folder in the library, so no file is read at run time.
+include-zip = []
+
+[dependencies]
+# The safe build of the sxd XML crates is always on. Upstream selects it with a `no-unsafe` feature, but
+# the differential test builds upstream beside this crate and both must agree on the sxd types.
+sxd-document-no-unsafe = { version = "0.4.2", features = ["no-unsafe"] }
+sxd-xpath-no-unsafe = { version = "0.5.1", features = ["no-unsafe"] }
+yaml-rust2 = "0.13"
+strum = { version = "0.28", features = ["derive"] }
+anyhow = "1.0"
+regex = "1.12.3"
+bitflags = "2.11"
+phf = { version = "0.13", features = ["macros"] }
+roman-numerals-rs = "4.1.0"
+radix_fmt = "1.0"
+unicode-script = "0.5"
+log = "0.4"
+cfg-if = "1.0.1"
+fastrand = "2.3.0"
+html-escape = "0.2.13"
+elements_rs = { version = "0.2.8", default-features = false }
+# bzip2 stays on the pure-Rust libbz2-rs-sys: no C compiler is needed.
+zip = { version = "9.0", default-features = false, features = ["deflate", "bzip2"] }
+
+[build-dependencies]
+bitflags = "2.6"
+yaml-rust2 = "0.13"
+zip = { version = "9.0", default-features = false, features = ["deflate", "bzip2"] }
+
+[dev-dependencies]
+env_logger = "0.11.9"
+tempfile = "3.23"
+# Upstream MathCAT, for the differential test against the fork.
+mathcat = { version = "0.7.7", features = ["include-zip", "no-unsafe"] }
+math-core = { version = "0.9", default-features = false }
+
+[lib]
+name = "tex2speech_mathcat"
+
+[lints]
+workspace = true
+
+[package.metadata.docs.rs]
+all-features = true

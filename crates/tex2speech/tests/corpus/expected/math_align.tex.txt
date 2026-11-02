@@ -1,0 +1,19 @@
+Aligned rows:
+a equal to b plus c,
+equation 1,
+equal to d,
+equal to e.
+equation A.
+Starred:
+x equal to one,
+y equal to two.
+p equal to q,
+equation 2,
+r equal to s,
+equation 3,
+f of x equal to a plus b plus c plus d plus e,
+equation 4,
+u equal to v,
+equal to w.
+equation 5.
+Equation 1 and 1.

@@ -1,0 +1,21 @@
+\documentclass{article}
+\newcommand{\vel}[1]{\mathbf{#1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand*{\dd}{\mathrm{d}}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newcommand{\pder}[3][]{\frac{\partial^{#1} #2}{\partial #3^{#1}}}
+\def\half#1{\frac{#1}{2}}
+\let\oldphi\phi
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\begin{document}
+$\vel{u} \in \R^3$, $\norm{A}$, $\dd x$, $\grad f$, $\argmin_x g$, $\half{x}$, $\oldphi$.
+$\pder{u}{t}$ and $\pder[2]{u}{x}$.
+\be
+E = \half{m} v^2
+\ee
+Used before definition: \later.
+\newcommand{\later}{defined later}
+\end{document}

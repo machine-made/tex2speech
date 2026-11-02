@@ -1,0 +1,13 @@
+Notes.
+By N. Author.
+
+First sentence.
+Footnote: A note that ends the sentence.
+Second sentence continues here.
+Footnote: Mid-sentence note.
+
+Section 1: With emphasis and x.
+Body.
+
+Unnumbered sub.
+Body again.

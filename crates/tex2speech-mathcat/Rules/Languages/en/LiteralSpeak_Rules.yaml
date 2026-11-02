@@ -1,0 +1,5 @@
+---
+# tex2speech: LiteralSpeak has no rule file of its own, so MathCAT used the first *_Rules.yaml file it found in this
+# directory (prefs.rs, find_any_style_file). Which one that is depends on the directory listing order, and ClearSpeak
+# and SimpleSpeak now read differently, so the output was not stable from run to run. This pins it to SimpleSpeak.
+- include: "SimpleSpeak_Rules.yaml"

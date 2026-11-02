@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage{amsmath,siunitx}
+\newcommand{\Rey}{\mathit{Re}}
+\newcommand{\vel}[1]{\mathbf{#1}}
+\newcommand{\unused}{HIDDENWORD}
+\title{Flow past a cylinder}
+\begin{document}
+\maketitle
+\begin{abstract}
+We study the wake of a circular cylinder at low Reynolds number.
+\end{abstract}
+\section{Introduction}
+The wake was described by Williamson et al.~\cite{williamson1996}. % a comment
+We set $\beta = 43000$, then $\beta = 43{,}000$, and $\Rey = \frac{U D}{\nu}$.
+The inflow is \SI{3}{\metre\per\second}.\footnote{Measured at the inlet.}
+\subsection{Equations}
+\newcommand{\alsounused}{HIDDENWORD}
+\iffalse HIDDENWORD \fi
+% HIDDENWORD
+The flow obeys
+\begin{equation}\label{eq:ns}
+\frac{\partial \vel{u}}{\partial t} + (\vel{u}\cdot\nabla)\vel{u} = -\nabla p + \nu \nabla^2 \vel{u}
+\end{equation}
+with $\nabla \cdot \vel{u} = 0$.
+\subsection{Other forms}
+Equation~\eqref{eq:ns} is written in \emph{convective} form.
+\begin{itemize}
+\item $\int_0^\infty e^{-x^2}\,dx = \frac{\sqrt{\pi}}{2}$
+\item $\sum_{i=0}^{N} x_i^2$
+\item $\lambda_{\max} = 1.3 \times 10^{-3}$
+\item $f(x+1)$ and $a(x+1)$
+\item $\mathcal{O}(h^2)$ and $u_\tau^+$
+\item $\dot{m} = \rho A U$ and $E_{kin}$
+\item $\begin{pmatrix} a & b \\ c & d \end{pmatrix}$
+\item $\hat{u}$, $\|x\|_2 \le \epsilon$ and $x \in \mathbb{R}^n$
+\end{itemize}
+\section{Results}
+\begin{figure}
+\includegraphics{wake.png}
+\caption{Vorticity in the wake.}\label{fig:wake}
+\end{figure}
+\begin{table}
+\caption{Mesh sizes.}
+\begin{tabular}{cc} 1 & 2 \\ \end{tabular}
+\end{table}
+Figure~\ref{fig:wake} shows the wake.
+\section*{Acknowledgements}
+We thank the reviewers.
+\appendix
+\section{Mesh}
+The mesh has 1200 elements.
+\begin{thebibliography}{1}
+\bibitem{williamson1996} C. Williamson. Vortex dynamics in the cylinder wake. 1996.
+\end{thebibliography}
+\end{document}

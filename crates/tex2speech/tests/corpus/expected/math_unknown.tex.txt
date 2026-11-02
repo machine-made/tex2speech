@@ -1,0 +1,5 @@
+Unknown command: a plus b equal to c, and zzz plus one.
+Unpaired delimiters: x plus y is fine.
+Broken: one ends.
+Dollar inside text: x if y z.
+After.

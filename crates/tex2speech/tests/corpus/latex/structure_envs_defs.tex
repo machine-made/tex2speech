@@ -1,0 +1,23 @@
+\documentclass{article}
+\newenvironment{note}[1]{\par\textbf{Note (#1):} }{\par}
+\newenvironment{shout}{\begin{quote}}{\end{quote}}
+\newcommand{\greet}[2][world]{Hello #1 and #2}
+\def\twice#1{#1 and #1}
+\let\emphasis\emph
+\newcommand{\hidden}{HIDDENWORD}
+\providecommand{\once}{once}
+\renewcommand{\once}{twice}
+\begin{document}
+\begin{note}{first}
+Inside a note.
+\end{note}
+\begin{shout}
+Quoted by an environment.
+\end{shout}
+\greet{you}. \greet[all]{you}. \twice{echo}. \emphasis{em}. Say \once.
+\iffalse HIDDENWORD \fi
+\newif\ifflag
+\flagtrue
+\ifflag yes\else no\fi. \flagfalse \ifflag yes\else no\fi.
+\ifx\undefinedmacro\relax undefined\else defined\fi.
+\end{document}

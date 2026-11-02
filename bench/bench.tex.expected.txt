@@ -1,0 +1,38 @@
+Flow past a cylinder.
+
+Abstract.
+We study the wake of a circular cylinder at low Reynolds number.
+
+Section 1: Introduction.
+The wake was described by Williamson and others, reference 1.
+We set beta equal to forty-three thousand, then beta equal to forty-three thousand, and Reynolds number equal to capital U capital D over nu.
+The inflow is three metres per second.
+Footnote: Measured at the inlet.
+
+Subsection 1: Equations.
+The flow obeys
+partial u, partial t, plus u dot grad u, equal to, minus grad p, plus nu laplacian u,
+equation 1,
+with divergence of u equal to zero.
+
+Subsection 2: Other forms.
+Equation 1 is written in convective form.
+Integral from zero to infinity of e to the minus x squared d x, equal to, square root of pi over two.
+Sum from i equal to zero to capital N of x i squared.
+Lambda max equal to one point three times ten to the minus three.
+f of x plus one, and a times, x plus one.
+Order h squared, and u tau plus.
+m dot equal to rho capital A capital U, and capital E kin.
+The two by two matrix with rows a, b, and c, d.
+u hat, two norm of x less than or equal to epsilon, and x in R n.
+
+Section 2: Results.
+Figure 1: Vorticity in the wake.
+Table 1: Mesh sizes.
+Figure 1 shows the wake.
+
+Acknowledgements.
+We thank the reviewers.
+
+Appendix A: Mesh.
+The mesh has one thousand two hundred elements.
