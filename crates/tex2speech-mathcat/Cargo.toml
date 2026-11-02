@@ -7,6 +7,8 @@ edition.workspace = true
 rust-version.workspace = true
 license = "MIT"
 repository.workspace = true
+keywords = ["mathml", "math", "speech", "accessibility"]
+categories = ["accessibility", "science"]
 authors = ["Neil Soiffer <soiffer@alum.mit.edu>", "Ricardo Frantz"]
 build = "build.rs"
 
