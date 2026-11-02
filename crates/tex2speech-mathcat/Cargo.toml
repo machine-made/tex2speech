@@ -7,7 +7,7 @@ edition.workspace = true
 rust-version.workspace = true
 license = "MIT"
 repository.workspace = true
-authors = ["Neil Soiffer <soiffer@alum.mit.edu>", "machine-made"]
+authors = ["Neil Soiffer <soiffer@alum.mit.edu>", "Ricardo Frantz"]
 build = "build.rs"
 
 [features]
