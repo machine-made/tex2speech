@@ -1,4 +1,4 @@
-//! Rule edits made with the English engine and for reading quality (`RULE_EDITS.md`, rows 27 to 29, 34 to 62 and 74 to 96).
+//! Rule edits made with the English engine and for reading quality (`RULE_EDITS.md`, rows 27 to 29, 34 to 62 and 74 to 97).
 
 use math_core::{LatexToMathML, MathCoreConfig, MathDisplay};
 use std::sync::Mutex;
@@ -136,6 +136,9 @@ const ROWS: &[(&str, &str)] = &[
         "y equal to minus open paren a plus b close paren plus c",
     ),
     (r"\{a > b\}", "the event a greater than b"),
+    (r"P(\{a>b\})", "capital P of the event a greater than b"),
+    (r"P(\left\{X>t\right\})", "capital P of the event capital X greater than t"),
+    (r"P(\{a\})", "capital P of the set a"),
     (r"\{a, b\}", "the set a, b"),
     (r"x_{n^2} = 1", "x sub n squared, equal to 1"),
     (r"\frac{a_{n^2}}{b}", "a sub n squared end sub, over b"),

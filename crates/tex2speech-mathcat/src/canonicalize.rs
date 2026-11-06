@@ -3854,6 +3854,10 @@ impl CanonicalizeContext {
 				if name(open) == "mo" && is_left_paren(open) && is_given_arg(as_str!(as_text(open)), &paren_group[1..]) {
 					return FunctionNameCertainty::True;
 				}
+				// P(\{a > b\}): a single set or event in the parentheses is an argument, whatever the name
+				if name(open) == "mo" && is_left_paren(open) && is_braced_arg(as_str!(as_text(open)), &paren_group[1..]) {
+					return FunctionNameCertainty::True;
+				}
 			}
 
 			// clean_chemistry wrapped up a state in an mrow and this is assumed by is_likely_chemical_state()
@@ -3984,6 +3988,43 @@ impl CanonicalizeContext {
 				}
 			}
 			return bars == 1;
+		}
+
+		/// A single braced group between the parentheses, as in `P(\{a > b\})`: a set or an event that the function takes.
+		fn is_braced_arg(open: &str, following_nodes: &[ChildOfElement]) -> bool {
+			let is_mo = |child: &ChildOfElement, text: &str| {
+				let child = as_element(*child);
+				name(child) == "mo" && as_text(child) == text
+			};
+			if following_nodes.is_empty() {
+				return false;
+			}
+			// \left\{ ... \right\} arrives as one group
+			let first = as_element(following_nodes[0]);
+			if name(first) == "mrow" {
+				let inner = first.children();
+				return inner.len() >= 2
+					&& is_mo(&inner[0], "{")
+					&& is_mo(&inner[inner.len() - 1], "}")
+					&& following_nodes.get(1).is_some_and(|next| is_matching_right_paren(open, as_element(*next)));
+			}
+			if !is_mo(&following_nodes[0], "{") {
+				return false;
+			}
+			let mut depth = 0;
+			for (i, child) in following_nodes.iter().enumerate() {
+				if is_mo(child, "{") {
+					depth += 1;
+				} else if is_mo(child, "}") {
+					depth -= 1;
+					if depth == 0 {
+						return following_nodes
+							.get(i + 1)
+							.is_some_and(|next| is_matching_right_paren(open, as_element(*next)));
+					}
+				}
+			}
+			return false;
 		}
 
 		fn is_left_paren(node: Element) -> bool {

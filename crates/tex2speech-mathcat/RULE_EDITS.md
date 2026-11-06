@@ -4,7 +4,7 @@ Every change to a file under `Rules/` against upstream MathCAT at git tag v0.7.7
 Settings used for every reading below: language `en`, speech style `ClearSpeak`, `TTS` `None`,
 MathML from math-core 0.9. The speech rules edited are English only (`Rules/Languages/en`); `fr` and `pt` speech rules are untouched.
 Rows 34 to 50, 54, 55, 59, 60 and 71 also edit `Rules/Intent/general.yaml` and `Rules/Intent/linear-algebra.yaml`, and rows 56, 72 and 73 edit
-`Rules/definitions.yaml` and `unicode*.yaml`; row 55 edits `src/canonicalize.rs`. Every language reads these. Rows 54, 55 and 61 change `fr` and `pt`
+`Rules/definitions.yaml` and `unicode*.yaml`; rows 55 and 97 edit `src/canonicalize.rs`. Every language reads these. Rows 54, 55 and 61 change `fr` and `pt`
 test strings (listed under the upstream tests changed); row 60 adds an intent name that only `Languages/en/definitions.yaml` defines, so
 `\det A` in French or Portuguese is read by the fallback.
 
@@ -190,6 +190,7 @@ Every row is a general rule. The readings are `en`, `ClearSpeak`, `TTS` `None`.
 | 94 | `unicode-full.yaml`, `≔`: "defined as" | x colon equals 1 | x defined as 1 | `\coloneqq`; the engine writes `:=` as `\coloneqq` before conversion |
 | 95 | `Intent/general.yaml`, `mtable-equations-property` and the two rules that test for a relation in a table: `≔` and `≕` count as an equals sign | array of; row one; column one; E of f, column two; defined as, ... | the rows of an `align` with `&:=` are lines of equations | `E(f)&:=a^2,\\ D(f)&:=E(f)-b` |
 | 96 | `ClearSpeak_Rules.yaml`, `fraction-over-simple`, `fraction-over-text`, `fraction-over-pauses`: a short pause after a fraction read with "over" when a sum or a product goes on after it (next sibling is an operator with something after it that is not a space, text or a full stop: `+`, `-`, `±`, `∓`, an invisible times, `×`, `·`, `*`) | a over b plus c | a over b, plus c | `\frac{a}{b}+c` could be heard as a over (b plus c); `c+\frac{a}{b}`, and a fraction last in its group, are unchanged |
+| 97 | `src/canonicalize.rs`, `is_function_name`: a single braced group (a set or an event) between the parentheses after an identifier makes it a function, as a single bar does in row 55. New `is_braced_arg`. Every language reads this | P open paren the event a greater than b close paren (with "times") | P of the event a greater than b | `P(\{a>b\})`, `P(\left\{X>t\right\})`; with anything else beside the group (`P(\{a>b\}\cap B)`) the guess is unchanged |
 
 Also with these rows, outside the rule files (all in `crates/tex2speech/src/math.rs`): `\|\cdot\|` and `f(\cdot)` name the dot ("norm of dot", "f of dot"), because the converter's mrow grouping puts the second bar inside a product with the dot; `\operatorname{Re}` before a Greek letter, a Latin letter or a group is the real part, as is `Re` or `\mathrm{Re}` before a Greek letter. `unicode.yaml` in English quotes `'Terse'` (the unquoted name is a child-element test). `fr` and `pt` `unicode.yaml` keep upstream's unquoted `Terse`: the upstream test `fr::units::si_other_numbers` encodes the Terse output that follows from it.
 

@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Fixed `P(\{a>b\})`: a letter before parentheses that hold one set or event is a function, so it reads "capital P of the event a greater than b", not "capital P times, the event ..."
+
 ## 0.0.1
 
 - Added the `tex2speech` crate and program; `tex2speech --version` prints the version. Exit codes: 0 success, 1 unreadable input, 2 bad command line, 3 output write failure
