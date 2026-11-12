@@ -137,7 +137,10 @@ const ROWS: &[(&str, &str)] = &[
     ),
     (r"\{a > b\}", "the event a greater than b"),
     (r"P(\{a>b\})", "capital P of the event a greater than b"),
-    (r"P(\left\{X>t\right\})", "capital P of the event capital X greater than t"),
+    (
+        r"P(\left\{X>t\right\})",
+        "capital P of the event capital X greater than t",
+    ),
     (r"P(\{a\})", "capital P of the set a"),
     (r"\{a, b\}", "the set a, b"),
     (r"x_{n^2} = 1", "x sub n squared, equal to 1"),
