@@ -1035,9 +1035,7 @@ impl Lx<'_> {
     fn step_heading(&mut self, level: usize) {
         self.sec[level] += 1;
         if level > 0 {
-            for l in level + 1..7 {
-                self.sec[l] = 0;
-            }
+            self.sec[level + 1..7].fill(0);
         }
         let keys: Vec<(String, usize)> = self.within.iter().map(|(k, v)| (k.clone(), *v)).collect();
         for (k, w) in keys {

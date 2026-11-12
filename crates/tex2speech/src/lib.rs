@@ -314,7 +314,7 @@ impl Document {
         let d = encoding::decode(&bytes);
         let mut o = opts.clone();
         if o.base_dir.is_none() {
-            o.base_dir = Some(path.parent().map(Path::to_path_buf).unwrap_or_default());
+            o.base_dir = Some(path.parent().map_or_default(Path::to_path_buf));
         }
         Ok(Self::run(
             &d.text,

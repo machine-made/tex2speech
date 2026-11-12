@@ -198,8 +198,7 @@ fn every_math_core_command_gives_words() {
             .segments()
             .iter()
             .find(|s| s.text.starts_with(&format!("Q{tag} ")))
-            .map(|s| s.text.clone())
-            .unwrap_or_default();
+            .map_or_default(|s| s.text.clone());
         let clean = !text.is_empty()
             && !text.contains(['\\', '{', '}', '$', '^', '_'])
             && unspeakable_chars(&text).is_empty()

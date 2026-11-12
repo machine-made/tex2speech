@@ -328,8 +328,7 @@ pub(crate) fn expand_abbreviations(s: &str, ends_text: bool) -> String {
                     let mut cs = w.chars();
                     w = cs
                         .next()
-                        .map(|f| f.to_uppercase().collect::<String>() + cs.as_str())
-                        .unwrap_or_default();
+                        .map_or_default(|f| f.to_uppercase().collect::<String>() + cs.as_str());
                 }
                 out.push_str(&w);
                 if ends_text && rest.trim().is_empty() {
