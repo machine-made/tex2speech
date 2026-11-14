@@ -1,3 +1,5 @@
+![tex2speech banner](https://raw.githubusercontent.com/machine-made/tex2speech/main/assets/readme-banner-v3.jpg)
+
 [![CI](https://github.com/machine-made/tex2speech/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/machine-made/tex2speech/actions/workflows/ci.yml)
 [![Crates.io](https://img.shields.io/crates/v/tex2speech.svg)](https://crates.io/crates/tex2speech)
 [![MSRV](https://img.shields.io/badge/MSRV-1.99-blue.svg)](Cargo.toml)
